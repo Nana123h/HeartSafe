@@ -1,0 +1,54 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}Add Patient{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">Add Patient</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="number" name="age" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select name="gender" class="form-select" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Stroke History</label>
+            <select name="stroke_history" class="form-select" required>
+              <option value="True">Yes</option>
+              <option value="False">No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Medication</label>
+            <textarea name="medication" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" name="phone_number" class="form-control" required>
+          </div>
+          <div class="d-flex justify-content-between">
+            <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-success">Save Patient</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

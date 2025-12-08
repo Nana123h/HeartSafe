@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}HeartSafe{% endblock %}</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'styles/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="bg-primary text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="{% url 'index' %}" class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="HeartSafe Logo" height="50">
+      </a>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'index' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'about' %}">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'services' %}">Services</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'doctors' %}">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <p>@ HeartSafe. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="{% static 'styles/bootstrap/js/bootstrap.bundle.jss' %}"></script>
+</body>
+</html>
+
+
+

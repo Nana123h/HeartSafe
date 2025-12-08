@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - HeartSafe{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero text-center text-white" style="background-image: url('{% static 'images/hero-bg.jpg' %}'); height: 500px; background-size: cover; display:flex; align-items:center; justify-content:center;">
+  <div>
+    <h1>Welcome to HeartSafe</h1>
+    <p>Your trusted stroke care center</p>
+    <a href="{% url 'services' %}" class="btn btn-primary">Explore Services</a>
+  </div>
+</section>
+
+<!-- Quick Info -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Why Choose Us?</h2>
+    <p>We provide comprehensive stroke patient care with experienced specialists, therapy programs, and personalized support.</p>
+  </div>
+</section>
+
+{% endblock %}
+

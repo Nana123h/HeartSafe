@@ -1,0 +1,36 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}Add Alert{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">Add Alert</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Patient</label>
+            <select name="patient" class="form-select" required>
+              {% for human in humans%}
+                <option> {{ human.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-control" required></textarea>
+          </div>
+          <div class="d-flex justify-content-between">
+            <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-success">Save Alert</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

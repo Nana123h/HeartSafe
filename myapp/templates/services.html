@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Services - HeartSafe{% endblock %}
+{% block content %}
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Our Services</h2>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <img src="{% static 'images/service-therapy.jpg' %}" class="card-img-top" alt="Therapy">
+          <div class="card-body">
+            <h5 class="card-title">Cognitive Therapy</h5>
+            <p class="card-text">Specialized therapy programs to improve memory, focus, and cognitive recovery.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <img src="{% static 'images/service-physio.jpg' %}" class="card-img-top" alt="Physiotherapy">
+          <div class="card-body">
+            <h5 class="card-title">Physiotherapy</h5>
+            <p class="card-text">Guided physical rehabilitation to restore mobility and strength.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+
+

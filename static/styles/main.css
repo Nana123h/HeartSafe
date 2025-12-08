@@ -1,0 +1,25 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+.hero {
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+footer {
+    font-size: 14px;
+}
+
+
+
