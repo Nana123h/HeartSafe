@@ -28,32 +28,39 @@ def add_patient(request):
         return redirect('index')
     return render(request, 'add_patient.html')  
 def add_symptom(request):
-    humans = Patient.objects.all()
+    humans = Patient.objects.all()  
     if request.method == 'POST':
-       patient_id = request.POST.get('patient_id') 
-       patient = Patient.objects.get(id=patient_id)
-       description = request.POST.get('description')
-       Symptom.objects.create(patient=patient,description=description)
-       return redirect('index')
-    return render(request, 'add_symptom.html',{'humans':humans})
-def add_service(request):
-    humans = Patient.objects.all()
-    if request.method == 'POST':
-       patient_id = request.POST.get('patient_id') 
-       patient = Patient.objects.get(id=patient_id)
-       service_type = request.POST.get('service_type')
-       Service.objects.create(patient=patient,service_type=service_type)
-       return redirect('index')
-    return render(request, 'add_service.html',{'humans':humans})
-def add_alert(request):
-    humans = Patient.objects.all()
-    if request.method == 'POST':
-        patient_id = request.POST.get('patient_id') 
-        patient = Patient.objects.get(id=patient_id)
-        message = request.POST.get('message')
-        Alert.objects.create( patient=patient,message=message)
+        patient_name = request.POST.get('patient')  
+        description = request.POST.get('description')  
+        human = Patient.objects.get(name=patient_name)
+        Symptom.objects.create(patient=human, description=description)
         return redirect('index')
-    return render(request, 'add_alert.html',{'humans':humans})
+    
+    return render(request, 'add_symptom.html', {'humans': humans})
+
+def add_service(request):
+    humans = Patient.objects.all()  
+    
+    if request.method == 'POST':
+        patient_name = request.POST.get('patient') 
+        service_type = request.POST.get('service_type')
+        human = Patient.objects.get(name=patient_name)
+        Service.objects.create(patient=human, service_type=service_type)
+        return redirect('index')
+    
+    return render(request, 'add_service.html', {'humans': humans})
+
+def add_alert(request):
+    humans = Patient.objects.all() 
+    
+    if request.method == 'POST':
+        patient_name = request.POST.get('patient') 
+        message = request.POST.get('message')
+        human = Patient.objects.get(name=patient_name)
+        Alert.objects.create(patient=human, message=message)
+        return redirect('index')
+    return render(request, 'add_alert.html', {'humans': humans})
+
 
 def payment(request):
     if request.method == "POST":
