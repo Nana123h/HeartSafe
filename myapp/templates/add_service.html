@@ -16,7 +16,7 @@
             <label class="form-label">Patient</label>
             <select name="patient" class="form-select" required>
               {% for human in humans %}
-                <option>{{ human.name }}</option>
+                <option value="{{ human.id }}">{{ human.name }}</option>
               {% endfor %}
             </select>
           </div>
