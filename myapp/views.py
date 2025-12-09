@@ -38,7 +38,7 @@ def add_symptom(request):
     return render(request, 'add_symptom.html',{'humans':humans})
 def add_service(request):
     humans = Patient.objects.all()
-    if request == 'POST':
+    if request.method == 'POST':
        patient_id = request.POST.get('patient_id') 
        patient = Patient.objects.get(id=patient_id)
        service_type = request.POST.get('service_type')
@@ -47,7 +47,7 @@ def add_service(request):
     return render(request, 'add_service.html',{'humans':humans})
 def add_alert(request):
     humans = Patient.objects.all()
-    if request == 'POST':
+    if request.method == 'POST':
         patient_id = request.POST.get('patient_id') 
         patient = Patient.objects.get(id=patient_id)
         message = request.POST.get('message')
