@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django_daraja.mpesa.core import MpesaClient
-from .models import Patient, Symptom, Service, Alert    
+from .models import Patient, Symptom, Service
 
 # Create your views here.
 def index(request):
@@ -50,16 +50,6 @@ def add_service(request):
     
     return render(request, 'add_service.html', {'humans': humans})
 
-def add_alert(request):
-    humans = Patient.objects.all() 
-    
-    if request.method == 'POST':
-        patient_name = request.POST.get('patient') 
-        message = request.POST.get('message')
-        human = Patient.objects.get(name=patient_name)
-        Alert.objects.create(patient=human, message=message)
-        return redirect('index')
-    return render(request, 'add_alert.html', {'humans': humans})
 
 
 def payment(request):

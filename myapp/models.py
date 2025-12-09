@@ -29,10 +29,3 @@ class Service(models.Model):
        return f"{self.service_type} for {self.patient.name}"
 
     
-class Alert(models.Model):
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    message = models.TextField()
-    date_created = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return (f"Alert for {self.patient.name} created on {self.date_created}")
